@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/emizamu/weatherApp-node/issues"
   },
-  "homepage": "https://github.com/emizamu/weatherApp-node#readme"
+  "homepage": "https://github.com/emizamu/weatherApp-node#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "inquirer": "^12.3.2"
+  }
 }
