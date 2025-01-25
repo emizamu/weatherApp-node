@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/emizamu/weatherApp-node#readme",
   "dependencies": {
+    "axios": "^1.7.9",
     "colors": "^1.4.0",
+    "dotenv": "^16.4.7",
     "inquirer": "^12.3.2"
   }
 }

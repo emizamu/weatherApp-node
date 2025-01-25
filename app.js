@@ -1,5 +1,6 @@
 const {inquirerMenu, pause, question} = require('./helpers/inquirer');
-const Searches = require('./models/searches')
+const Searches = require('./models/searches');
+require('dotenv').config();
 
 main = async () => {
 
@@ -8,6 +9,7 @@ main = async () => {
     const searches = new Searches();
 
     do {
+        console.clear();
 
         opt = await inquirerMenu();
 
@@ -15,7 +17,7 @@ main = async () => {
             case 1:
                 // Mostrar mensaje
                 const place = await question('Indique ciudad:');
-                console.log(place);
+                searches.searchCity(place);
                 // Buscar lugares
                 // Seleccionar Lugar
                 // Clima
