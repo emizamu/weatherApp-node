@@ -34,31 +34,21 @@ require('colors');
     }
 
 
-
-    
-    //* Anterior
-    
-
-
-    const deleteTasksView = async (tasks = [] ) => {
+    const listOfPlaces = async (places = [] ) => {
         
-        const choices = tasks.map ((task, i) => {
+        const choices = places.map((place, i) => {
+            
             const indx = `${i + 1}. `.green;
 
             return {
-                value: task.id,
-                name: `${indx} ${task.desc}`
+                value: place.id,
+                name: `${indx} ${place.name}`
             }
         });
 
-        choices.unshift({ // Agrega una opcion al principio
-            value: 0,
-            name: `0. `.green + `Cancelar`
-        })
-
         const questions = await select (
             {   
-                message: 'Borrar',
+                message: 'Opciones encontradas',
                 choices
             }
         );
@@ -66,6 +56,12 @@ require('colors');
         return questions;
 
     }
+
+    
+    //* Anterior
+    
+
+
 
     const messageConfirm = async (message) => {
         const answer = await confirm({ message });
@@ -99,7 +95,7 @@ require('colors');
         inquirerMenu,
         pause,
         question,
-        deleteTasksView,
+        listOfPlaces,
         messageConfirm,
         changeTasksStatusView
     }
