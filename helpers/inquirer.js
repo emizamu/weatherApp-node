@@ -23,12 +23,12 @@ require('colors');
     };
     
     const pause = async () => {
-        
+        console.log();
         await input({ message: `Presione ${'ENTER'.green} para continuar` });
     }
     
     const question = async (message = '') => {
-
+        console.log();
         const answer = await input({message, required: true});
         return answer;
     }
@@ -56,46 +56,12 @@ require('colors');
         return questions;
 
     }
+ 
 
-    
-    //* Anterior
-    
-
-
-
-    const messageConfirm = async (message) => {
-        const answer = await confirm({ message });
-        return answer;
-    }
-
-    const changeTasksStatusView = async (tasks = [] ) => {
-        
-        const choices = tasks.map ((task, i) => {
-            const indx = `${i + 1}. `.green;
-
-            return {
-                value: task.id,
-                name: `${indx} ${task.desc}`,
-                checked: (task.completadoEn) ? true : false, // Muestra check las tareas completadas
-            }
-        });
-
-        const questions = await checkbox (
-            {   
-                message: 'Select',
-                choices
-            }
-        ); 
-
-        return questions;
-
-    }
     
     module.exports = {
         inquirerMenu,
         pause,
         question,
         listOfPlaces,
-        messageConfirm,
-        changeTasksStatusView
     }

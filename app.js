@@ -22,6 +22,8 @@ main = async () => {
                 // Seleccionar Lugar
                 const placeID = await listOfPlaces(placesFound);
                 const placeSelected = placesFound.find(place => place.id === placeID);
+                // Guarda en DB
+                searches.addHistory(placeSelected.name);
                 // Clima
                 const weather = await searches.searchWeather(placeSelected.lat,placeSelected.lng);
                 // Mostrar resultados
@@ -37,6 +39,11 @@ main = async () => {
 
                 break;
             case 2:
+                console.log();
+                searches.historyCap.forEach((loc,i) => {
+                    const indx = `${i + 1}.`.green;
+                    console.log(`${indx} ${loc}`);
+                });
                 break;
         }
 
